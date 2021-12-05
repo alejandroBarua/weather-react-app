@@ -1,0 +1,33 @@
+.display{
+	padding-bottom: 2rem;
+	color:white;
+	overflow:hidden;
+	background:radial-gradient(at bottom,#fcc756 0%,#199EFC 90%);
+	text-align:center;
+	margin-bottom: 3rem;
+	border-radius: 0 0 85% 85% / 50%;
+	box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 3px;
+	
+}
+
+
+.display h1{
+	color: white;
+	font-family: GTWalsheim,system-ui,sans-serif;
+	text-rendering:optimizelegibility;
+	font-weight:bold;
+	font-size:250%;
+}
+
+.nav{
+	display: flex;
+	justify-content: center;
+	font-size: 0.8rem;
+	padding-bottom: 1.4rem;
+}
+
+
+.nav a{
+	margin-right: 0.2rem;
+	padding: 0 0.5rem;
+}

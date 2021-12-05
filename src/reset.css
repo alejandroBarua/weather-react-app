@@ -1,0 +1,130 @@
+/* :root {
+  --primary-color: #1f69bd;
+  --secondary-color: green;
+} */
+
+html {
+  background-color: rgb(250, 250, 250);
+  color: #222;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+	width: 15px;
+	background-color: rgba(179, 179, 179, 0.5);
+	border-radius: 0px 0px 2px 0px;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: #7e7e7e;
+	border-radius: 2rem;
+	border-right: 3px solid rgba(248, 248, 248, 0.5);
+}
+
+/* 
+1rem = 16px
+1.5rem = 24px
+2rem = 32px
+3rem = 64px
+
+*/
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+
+.btn,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover,
+a:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+li {
+  list-style: none;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+header {
+  padding-top: 1rem;
+  padding-bottom: 0.7rem;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+  padding: 0.4rem 1rem;
+}
+
+.container {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.t-center{
+  text-align: center;
+}
+
+.flex-end{
+  justify-content: end;
+}
+
+.flex-center{
+  justify-content: center;
+}
+
+
+.bg-red{
+  background-color: red;
+}
+
+.box-shadow {
+  box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px;
+}
+
+.gradient {
+  background-image: linear-gradient(to bottom, #1f69bd, #39a4f0);
+  min-height: 100vh;
+}
