@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header/Header";
@@ -11,6 +11,12 @@ import Footer from "./components/Footer/Footer";
 
 
 const App = () => {
+
+  useEffect(() => {
+
+    onSearch("Buenos Aires, Argentina");
+
+  }, [])
 
   const [cities, setCities] = useState([]);
   
@@ -46,12 +52,14 @@ const App = () => {
 
   const onSearch = (city) => {
 
+
+
     if(city === '') return setErrorMensage(true);
     setLoading(true);
     
     const apiKey = '15dbe9612294778560ef5ad24e400225';
 
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
     .then(res => res.json())
     .then(({id, timezone, name, main, sys, weather, wind}) => {
       setLoading(false);
@@ -69,7 +77,7 @@ const App = () => {
       } else {
         setErrorMensage(true);        
       }
-    })
+    }).catch((err) => console.log(err));
 
     document.querySelector('#inputCity').value = "";
     setCity('');

@@ -48,3 +48,6 @@ const getDateToday = (timeZone) => {
 
 console.log(getDateToday(-21600));
 console.log(getDateToday(-10800));
+
+
+/* https://weather-react-app-ab.netlify.app/about */
