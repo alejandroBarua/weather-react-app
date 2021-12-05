@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header/Header";
@@ -6,23 +6,13 @@ import Cards from './components/Cards/Cards.jsx';
 import CityOne from "./components/CityOne/CityOne";
 import About from "./components/About/About";
 
-// import data from './db/data.js';
 import statesList from "./helpers/statesList";
 import Footer from "./components/Footer/Footer";
 
 
 const App = () => {
 
-  const citiesDefault = ["Buenos Aires, Argentina", "Madrid, España"];
-
-  useEffect(() => {
-    
-    citiesDefault.map(city => onSearch(city))
-
-  }, [])
-  
   const [cities, setCities] = useState([]);
-  // const [cities, setCities] = useState(data);
   
   const [isActiveResults, setIsActiveResults] = useState(false);
 
@@ -123,7 +113,7 @@ const App = () => {
             <> 
               {
                 !cities.length && <div>
-                  <p style={{textAlign: "center",  marginBottom: "1rem", color: "#2229"}}>There's nothing here!</p>
+                  <p style={{textAlign: "center",  marginBottom: "1rem", color: "#2229"}}>Look for a city.</p>
                 </div>
               }
 
