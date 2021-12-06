@@ -12,12 +12,6 @@ import Footer from "./components/Footer/Footer";
 
 const App = () => {
 
-  useEffect(() => {
-
-    onSearch("Buenos Aires, Argentina");
-
-  }, [])
-
   const [cities, setCities] = useState([]);
   
   const [isActiveResults, setIsActiveResults] = useState(false);
@@ -129,6 +123,12 @@ const App = () => {
 			
 		}
 	}
+
+   useEffect(() => {
+
+    onSearch("Buenos Aires, Argentina");
+
+  }, [])
 
   useEffect(() => {
 		const $dataResult = document.querySelector('.dataResult');
