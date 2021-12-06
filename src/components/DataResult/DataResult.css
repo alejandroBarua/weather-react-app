@@ -1,3 +1,8 @@
+
+.dataActive{
+	background-color: rgb(243, 243, 243);
+}
+
 .dataResult{
 	position: absolute;
 	left: 50%;

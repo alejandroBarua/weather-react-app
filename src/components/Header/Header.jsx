@@ -1,16 +1,16 @@
-import React from 'react'
-
 import { NavLink, Link } from "react-router-dom";
 
 import headerCSS from "./Header.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 import DataResult from "../DataResult/DataResult";
 
-const Header = ({title, onSearch, isActiveResults, changeInvalidResults, changeActiveResults, changeInputValue, city, cleanCity, filteredData, errorMensage, loading}) => {
-
+const Header = ({title, onSearch, isActiveResults, changeInvalidResults, changeActiveResults, changeInputValue, city, cleanCity, filteredData, errorMensage, loading, dataActivePos, handleSubPos, handleSumPos}) => {
+	
 
   return(
     <header className={headerCSS.display}>
+
+			
 			<div onClick={changeInvalidResults}>
 				<Link to="/">
 					<h1>{title}</h1>
@@ -54,13 +54,17 @@ const Header = ({title, onSearch, isActiveResults, changeInvalidResults, changeA
 					changeActiveResults={changeActiveResults}
 					changeInvalidResults={changeInvalidResults}
 					errorMensage={errorMensage}
-					loading={loading} />
-
+					loading={loading}
+					handleSumPos={handleSumPos}
+					handleSubPos={handleSubPos} 
+					dataActivePos={dataActivePos} 
+					filteredData={filteredData} />
 				
 				{
 					isActiveResults &&	<DataResult 
 																filteredData = {filteredData}
-																onSearch={onSearch} />
+																onSearch={onSearch}
+																dataActivePos={dataActivePos} />
 				}
 			</div>
 		

@@ -21,6 +21,10 @@ const App = () => {
   const [cities, setCities] = useState([]);
   
   const [isActiveResults, setIsActiveResults] = useState(false);
+	
+  const [dataActivePos, setDataActivePos] = useState(-1);
+  const [posScroll, setPosScroll] = useState(0);
+	const [position, setPosition] = useState(-1);
 
   const [loading, setLoading] = useState(false);
   const [errorMensage, setErrorMensage] = useState(false)
@@ -30,8 +34,15 @@ const App = () => {
     setErrorMensage(false);
 	}
 
+  const resetPositions = () => {
+    setDataActivePos(-1);
+    setPosition(-1);
+    setPosScroll(0);
+  }
+
   const changeInvalidResults = () => {
     setIsActiveResults(false);
+    resetPositions();
   }
 
   const [city, setCity] = useState('');
@@ -40,7 +51,8 @@ const App = () => {
   const cleanCity = () => setCity('');
 
   const changeInputValue = (textInput) => {
-		
+
+    resetPositions();
 		setCity(textInput.current.value);
 		
 		const newFilter = statesList.filter(value => {
@@ -51,8 +63,6 @@ const App = () => {
 	};
 
   const onSearch = (city) => {
-
-
 
     if(city === '') return setErrorMensage(true);
     setLoading(true);
@@ -81,6 +91,7 @@ const App = () => {
 
     document.querySelector('#inputCity').value = "";
     setCity('');
+    resetPositions();
     setIsActiveResults(false);
   }
 
@@ -96,6 +107,37 @@ const App = () => {
     }
   }
 
+  	const handleSumPos = () => {
+		
+		if(!!filteredData.length && dataActivePos < filteredData.slice(0, 9).length){
+			setDataActivePos(dataActivePos + 1);
+			if(position < 4) setPosition(position+1); 
+			if(position === 4) {
+				setPosScroll(posScroll+30)
+			}
+		}
+	}
+	
+	const handleSubPos = () => {
+		
+		if(dataActivePos > -1){
+			setDataActivePos(dataActivePos - 1);
+			if(position > 0) setPosition(position-1); 
+			if(position === 0) {
+				setPosScroll(posScroll-30);
+			}
+			
+		}
+	}
+
+  useEffect(() => {
+		const $dataResult = document.querySelector('.dataResult');
+	 	if(!!$dataResult) $dataResult.scroll({top: posScroll})
+
+	}, [posScroll])
+	
+
+
   return (
     <>
       <Header 
@@ -110,7 +152,10 @@ const App = () => {
         city={city}
         cleanCity={cleanCity}
         loading={loading}
-        errorMensage={errorMensage} />
+        errorMensage={errorMensage}
+        dataActivePos={dataActivePos}
+        handleSumPos={handleSumPos}
+        handleSubPos={handleSubPos} />
 
       <div onClick={changeInvalidResults} className="container wrapper">
 

@@ -2,13 +2,32 @@ import { useRef } from 'react';
 import Loader from '../Loader/Loader';
 import searchBarCSS from "./SearchBar.module.css";
 
-const SearchBar = ({city, cleanCity, onSearch, changeInputValue, changeActiveResults, changeInvalidResults, loading, errorMensage}) => {
+const SearchBar = ({city, cleanCity, onSearch, changeInputValue, changeActiveResults, changeInvalidResults, loading, errorMensage, handleSumPos, handleSubPos, dataActivePos, filteredData}) => {
 
   let textInput = useRef(null);
 
   const deleteInputValue = () => {
     textInput.current.value = '';
     textInput.current.focus();
+  }
+
+  const handleKeyPress = (e) => {
+    
+    if(e.key === 'Enter'){
+
+      if(dataActivePos === -1) return  onSearch(e.target.value);
+      onSearch(filteredData[dataActivePos]);
+    }
+    
+    
+    
+    if(e.key === "ArrowDown") {
+      handleSumPos();
+    }
+
+    if(e.key === "ArrowUp"){
+      handleSubPos();
+    }
   }
 
   return (
@@ -26,6 +45,8 @@ const SearchBar = ({city, cleanCity, onSearch, changeInputValue, changeActiveRes
           changeActiveResults();  
         }}
         onClick={changeActiveResults}
+        onKeyDown={(e) => handleKeyPress(e)}
+        
       />
 
       <i onClick={() => {
