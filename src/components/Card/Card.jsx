@@ -5,7 +5,7 @@ import './Card.css';
 
 const Card = ({id, temp, name, countryCode, img, onClose}) => {
 
-  const urlImg = `http://openweathermap.org/img/wn/${img}@2x.png`;
+  const urlImg = `https://openweathermap.org/img/wn/${img}@2x.png`;
 
   const deleteCity = (e) => onClose(e.target.id);
 

@@ -2,11 +2,11 @@ import './About.css';
 
 const About = () => {
 
-	 const urlImgSunny = `http://openweathermap.org/img/wn/01d@2x.png`;
-	 const urlImgCloudy = `http://openweathermap.org/img/wn/03d@2x.png`;
-	 const urlImgRain = `http://openweathermap.org/img/wn/09d@2x.png`;
-	 const urlImgTorm = `http://openweathermap.org/img/wn/11n@2x.png`;
-	 const urlImgMist = `http://openweathermap.org/img/wn/13d@2x.png`;
+	 const urlImgSunny = `https://openweathermap.org/img/wn/01d@2x.png`;
+	 const urlImgCloudy = `https://openweathermap.org/img/wn/03d@2x.png`;
+	 const urlImgRain = `https://openweathermap.org/img/wn/09d@2x.png`;
+	 const urlImgTorm = `https://openweathermap.org/img/wn/11n@2x.png`;
+	 const urlImgMist = `https://openweathermap.org/img/wn/13d@2x.png`;
 
 	return (
 		<div className="page-about">
