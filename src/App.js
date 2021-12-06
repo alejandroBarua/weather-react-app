@@ -124,12 +124,6 @@ const App = () => {
 		}
 	}
 
-   useEffect(() => {
-
-    onSearch("Buenos Aires, Argentina");
-
-  }, [])
-
   useEffect(() => {
 		const $dataResult = document.querySelector('.dataResult');
 	 	if(!!$dataResult) $dataResult.scroll({top: posScroll})
