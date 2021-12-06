@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import countryList from "../../helpers/countryNames";
 import chooseColorCard from "../../helpers/colorCard";
@@ -6,7 +6,16 @@ import getDateToday from "../../helpers/getDateToday";
 
 import './CityOne.css';
 
-const CityOne = ({onFilter, onSearch}) => {
+const CityOne = ({onFilter, onSearch, setCities}) => {
+
+  let navigate = useNavigate();
+
+  const goHome = () => {
+    
+    setCities(oldCities => oldCities.filter(el => el.id !== id))
+
+    navigate("/", { state: "hello" })
+  };
 
 	const { idCity } = useParams();
   
@@ -16,7 +25,7 @@ const CityOne = ({onFilter, onSearch}) => {
                       <p style={{textAlign: "center", marginBottom: "1rem", color: "#2229"}}>No city found with that id!</p>
                     </div>);
   
-  const {timezone, name, main, sys, weather, wind} = city;
+  const {id, timezone, name, main, sys, weather, wind} = city;
 
   const countryCode = sys.country;
   const img = weather[0].icon;
@@ -27,7 +36,9 @@ const CityOne = ({onFilter, onSearch}) => {
 
   return (
 
-    <div className={`city img${chooseColorCard(img)}`}>
+    <div className={`city img${chooseColorCard(img)} pos-relative`}>
+        <i id={id} className="bi bi-x deleteCityOne"
+          onClick={goHome}></i>
         <div className="description-container">
           <i className="bi bi-arrow-clockwise reload" onClick={() => onSearch(name)}></i>
           <p className="description">{weather[0].description}</p>

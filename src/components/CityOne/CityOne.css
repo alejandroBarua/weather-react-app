@@ -1,4 +1,20 @@
+.pos-relative{
+	position: relative;
+}
 
+.deleteCityOne{
+	position: absolute;
+	right: 10px;
+	top: 3px;
+	font-size: 1.5rem;
+	z-index: 999;
+	color: rgb(221, 221, 221);
+}
+
+.deleteCityOne:hover{
+	cursor: pointer;
+	color: rgb(255, 110, 110);
+}
 .city{
 	margin-bottom: 1rem;
 	display: flex;
@@ -38,6 +54,7 @@
 
 .info-city{
 	padding: 0.7rem;
+	padding-top: 1.2rem;
 	padding-bottom: 0;
 	width: 50%;
 	opacity: 0.8;

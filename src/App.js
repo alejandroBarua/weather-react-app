@@ -176,7 +176,10 @@ const App = () => {
           <Route path="/city/:idCity" element={
 
             <> 
-              <CityOne onSearch={onSearch} onFilter={onFilter} />
+              <CityOne 
+                onSearch={onSearch} 
+                onFilter={onFilter}
+                setCities={setCities} />
               <Cards 
                 cities={cities}
                 onClose={onClose}  />
