@@ -66,8 +66,6 @@ const App = () => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
     .then(res => res.json())
     .then(({id, timezone, name, main, sys, weather, wind}) => {
-      setLoading(false);
-
       if(name !== undefined){
 
         setCities(oldCities => {
@@ -81,8 +79,9 @@ const App = () => {
       } else {
         setErrorMensage(true);        
       }
-    }).catch((err) => console.log(err));
-
+    }).catch(() => setErrorMensage(true))
+    
+    setLoading(false);
     document.querySelector('#inputCity').value = "";
     setCity('');
     resetPositions();
@@ -156,19 +155,9 @@ const App = () => {
         <Routes>
 
           <Route path="/" element={
-
-            <> 
-              {
-                !cities.length && <div>
-                  <p style={{textAlign: "center",  marginBottom: "1rem", color: "#2229"}}>Look for a city.</p>
-                </div>
-              }
-
               <Cards 
                 cities={cities}
                 onClose={onClose}  />
-            </>
-            
           } />
 
           <Route path="/about" element={<About />} />

@@ -9,7 +9,14 @@ const Cards = ({cities, onClose}) => {
 
   const citiesList = idCity ? cities.filter(el => el.id !== Number(idCity)) : cities;
 
+  if(!citiesList.length && !idCity) {
+    return (<div>
+                  <p style={{textAlign: "center",  marginBottom: "1rem", color: "#2229"}}>Look for a city.</p>
+                </div>)
+  }
+
   return(
+
     <div className={cardsCSS.cardsContainer}>
       {
         citiesList.map(({id, name, main, sys, weather}, index) => { 

@@ -1,9 +1,9 @@
 .wrapper{
-	min-height: calc(100vh - 29.1rem);
+	min-height: calc(100vh - 28.5rem);
 }
 
 footer {
-	height: 12.6rem;
+	height: 12rem;
   color: #ffffff;
   background: rgb(85, 85, 85);
   padding-top: 2rem;
@@ -68,6 +68,10 @@ footer .copy {
 
 
 @media screen and (max-width: 650px) {
+
+	.wrapper{
+		min-height: calc(100vh - 33.7rem);
+	}
 
 	footer{
 		height: 17.2rem;
