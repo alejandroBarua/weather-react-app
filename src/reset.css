@@ -128,3 +128,70 @@ button {
   background-image: linear-gradient(to bottom, #1f69bd, #39a4f0);
   min-height: 100vh;
 }
+
+.wrapper{
+	min-height: calc(100vh - 28.5rem);
+}
+
+
+@media screen and (max-width: 650px) {
+
+	.wrapper{
+		min-height: calc(100vh - 33.7rem);
+	}
+}
+
+.pos-relative{
+	position: relative;
+}
+
+
+.imgmist{
+	background-image: url("./assets/mist.jpg");
+}
+
+
+.imgcloudy{
+	background-image: url("./assets/cloudy.jpg");
+}
+
+.imgsunny{
+	background-image: url("./assets/sunny.jpg");
+}
+
+.imgrain{
+	background-image: url("./assets/rain.jpg");
+}
+
+.imgnigth{
+	background-image: url("./assets/nigth.jpg");
+}
+
+.imgthunderstorm{
+	background-image: url("./assets/thunderstorm.jpg");
+}
+
+
+.mist{
+	background-image: linear-gradient(#c4caff, #9fa8ff);
+}
+
+.cloudy{
+	background-image: linear-gradient( #7cc8ff, #5eb9fa);
+}
+
+.sunny{
+	background-image: linear-gradient(#ffc942, rgb(255, 230, 66));
+}
+
+.rain{
+	background-image: linear-gradient(#6e6e6e, #a8a8a8);
+}
+
+.nigth{
+	background-image: linear-gradient(#6966ff, #0d0057);
+}
+
+.thunderstorm{
+	background-image: linear-gradient(#4b4b4b, #242424);
+}

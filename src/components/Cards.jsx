@@ -1,23 +1,26 @@
+import styled from 'styled-components';
 import { useParams } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
-import Card from '../Card/Card';
-import cardsCSS from './Cards.module.css'
+import { Card } from "./index";
 
-const Cards = ({cities, onClose}) => {
+
+const Cards = () => {
 
   const { idCity } = useParams();
+  const cities = useSelector(state => state.cities);
 
   const citiesList = idCity ? cities.filter(el => el.id !== Number(idCity)) : cities;
 
   if(!citiesList.length && !idCity) {
-    return (<div>
-                  <p style={{textAlign: "center",  marginBottom: "1rem", color: "#2229"}}>Look for a city.</p>
-                </div>)
+    return (<MsgEmpty>
+              <p>Look for a city.</p>
+            </MsgEmpty>)
   }
 
   return(
 
-    <div className={cardsCSS.cardsContainer}>
+    <CardsContainer>
       {
         citiesList.map(({id, name, main, sys, weather}, index) => { 
 
@@ -28,13 +31,28 @@ const Cards = ({cities, onClose}) => {
                     countryCode={sys.country}
                     temp={main.temp}
                     img={weather[0].icon}
-                    onClose={onClose}
                 />
           )
         })
       }
-    </div>
+    </CardsContainer>
   )
 }
 
 export default Cards;
+
+
+const CardsContainer = styled.div`
+  
+  display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 1rem;
+`
+
+const MsgEmpty = styled.div`
+  
+  p{
+  	text-align: center;
+    color: #2229;
+  }
+`
